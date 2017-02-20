@@ -17,13 +17,14 @@
 	<script src="js/jquery/jquery-2.1.1.min.js"></script>
 	<script src="js/bootstrap/bootstrap.min.js"></script>
 	
-	<script src="js/angular/angular.min.js"></script>
+	<script src="js/angular/angular.js"></script>
 	<script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
 	
+	<script src="js/charts/Chart.min.js"></script>
+	<script src="js/charts/angular-chart.min.js"></script>
+
+	
 	<script src="js/app.js"></script>
-	<script src="js/services.js"></script>
-	<script src="js/config.js"></script>
-	<script src="js/directives.js"></script>
 	<script src="js/controllers.js"></script>
 
 </head>
@@ -32,7 +33,7 @@
 
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Modify Event</h2>
+        <h2>Pitcher Analysis</h2>
     </div>
     <div class="col-lg-2">
 
@@ -41,31 +42,23 @@
 <div class="wrapper wrapper-content">
     <div class="row">
         <div class="col-lg-8">
-            <div class="dbox">
-                <div class="dbox-title">
-                    <h5>Event Details</h5>
+            <div class="displaybox">
+                <div class="displaybox-title">
+                    <h5>Chart</h5>
                 </div>
-                <div class="dbox-content">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                        	<label class="col-lg-3 control-label">Title</label>
-                            <div class="col-lg-9"><input type="text" ng-model="event.title" placeholder="Title" class="form-control" tooltip-placement="bottom" uib-tooltip="The title for the event">
-                            </div>
-                        </div>
-                        <div class="form-group"><label class="col-lg-3 control-label">Description</label>
-                            <div class="col-lg-9"><textarea rows="3" ng-model="event.desc" placeholder="Description" class="form-control" tooltip-placement="bottom" uib-tooltip="The description is shown on the registration page and calendar"></textarea>
-                            </div>
-                        </div>
-                    </form>
+                <div class="displaybox-content">
+					<canvas id="bar" class="chart chart-bar"
+					  chart-data="data" chart-labels="labels" chart-series="series">
+					</canvas>
                 </div>
             </div>
         </div>
 	    <div class="col-lg-4">
-	         <div class="dbox">
-	             <div class="dbox-title">
+	         <div class="displaybox">
+	             <div class="displaybox-title">
 	                 <h5>Event Logo</h5>
 	             </div>
-	             <div class="dbox-content">
+	             <div class="displaybox-content">
                     <div class="text-center m-t-md">
                         <button class="btn dim btn-primary" ng-click="editLogo()"><i class="fa fa-picture-o"></i> &nbsp; Edit Logo</button>
                     </div>
@@ -73,11 +66,11 @@
 	         </div>
 	    </div>
         <div class="col-lg-4">
-	         <div class="dbox">
-	             <div class="dbox-title">
+	         <div class="displaybox">
+	             <div class="displaybox-title">
 	                 <h5>Actions</h5>
 	             </div>
-	             <div class="dbox-content">
+	             <div class="displaybox-content">
 	                <div class="text-center">
 	                	<button class="btn dim btn-lg btn-info btn-block" ng-class="{'disabled': !event.collectData}" ng-click="editForm()"><i class="fa fa-list-alt"></i> &nbsp; Setup Form</button>
 						<hr class="hr-line-solid"/>

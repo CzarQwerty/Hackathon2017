@@ -2,11 +2,21 @@
  * MainCtrl - controller
  */
 function MainCtrl($scope) {
-    this.userName = 'Example user';
-    this.initials = 'Eu';
-    this.helloText = 'Welcome to the Dashboard';
-    this.descriptionText = 'There will be dashboard items and metrics displayed here.For now, use the menu on the left hand side.';
     this.event = {};
+    this.data2 = [];
+    
+    $scope.labels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    $scope.series = ['Series A', 'Series B'];
+
+    $scope.data = [
+      [65, 59, 80, 81, 56, 55, 40],
+      [28, 48, 40, 19, 86, 27, 90]
+    ];
+    
+//    $http.get('data/2016-WS.json')
+//    .then(function(res) {
+//       $scope.data2 = res.data;                
+//     });
 }
 
 angular

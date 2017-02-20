@@ -1,3 +1,3 @@
 angular
     .module('hackathon')
-    .config();
+    .config().run([]);
